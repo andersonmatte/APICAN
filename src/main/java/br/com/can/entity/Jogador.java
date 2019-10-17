@@ -33,7 +33,6 @@ public class Jogador {
     private long altura;
 
     @Column
-    @OneToOne
-    private Categoria categoria;
+    private String categoria;
 
 }
