@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,6 +20,9 @@ public class Clube {
 
     @Column
     private String descricao;
+
+    @Column
+    private String endereco;
 
     @Column
     private long telefone;
@@ -37,5 +41,8 @@ public class Clube {
 
     @Column
     private String linkInstagran;
+
+    @Column
+    private Date dataFundacao;
 
 }

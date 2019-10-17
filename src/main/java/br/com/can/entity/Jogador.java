@@ -18,6 +18,9 @@ public class Jogador {
     private long id;
 
     @Column
+    private String nome;
+
+    @Column
     private String posicao;
 
     @Column
