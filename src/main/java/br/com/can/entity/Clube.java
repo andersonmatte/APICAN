@@ -47,7 +47,6 @@ public class Clube {
     @Column
     private Date dataFundacao;
 
-    @ManyToMany
     @JoinColumn(name = "ID")
     private List<Usuario> usuarios;
 
