@@ -6,11 +6,13 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity
+@Table(name = "CLUBE")
 public class Clube {
 
     @Id
@@ -44,5 +46,9 @@ public class Clube {
 
     @Column
     private Date dataFundacao;
+
+    @OneToMany
+    @JoinColumn(name = "ID", referencedColumnName = "ID")
+    private List<Usuario> usuarios;
 
 }

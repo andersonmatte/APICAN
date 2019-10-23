@@ -5,11 +5,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity
+@Table(name = "JOGADOR")
 public class Jogador {
 
     @Id
@@ -32,7 +34,16 @@ public class Jogador {
     @Column
     private long altura;
 
-    @Column
-    private String categoria;
+    @OneToOne
+    @JoinColumn(name = "ID", referencedColumnName = "ID")
+    private Categoria categoria;
+
+    @OneToOne
+    @JoinColumn(name = "ID", referencedColumnName = "ID")
+    private Usuario usuario;
+
+    @OneToMany
+    @JoinColumn(name = "ID", referencedColumnName = "ID")
+    private List<Pagamento> pagamentos;
 
 }

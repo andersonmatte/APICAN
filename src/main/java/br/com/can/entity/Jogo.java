@@ -11,6 +11,7 @@ import java.sql.Date;
 @NoArgsConstructor
 @Data
 @Entity
+@Table(name = "JOGO")
 public class Jogo {
 
     @Id
