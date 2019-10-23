@@ -44,7 +44,7 @@ public class Usuario {
     @Column
     private String senha;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "ID")
     private Clube clube;
 

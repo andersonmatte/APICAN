@@ -35,14 +35,14 @@ public class Jogador {
     private long altura;
 
     @JoinColumn(name = "ID")
-    @ManyToOne
+    @OneToOne
     private Categoria categoria;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "ID")
     private Usuario usuario;
 
-    @ManyToMany
+    @OneToMany
     @JoinColumn(name = "ID")
     private List<Pagamento> pagamentos;
 
