@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,5 +21,9 @@ public class Categoria {
 
     @Column
     private String tipoCategoria;
+
+    @OneToMany
+    @JoinColumn(name = "ID", referencedColumnName = "ID")
+    private List<Jogador> jogadores;
 
 }
