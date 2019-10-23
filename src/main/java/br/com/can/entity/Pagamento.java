@@ -26,7 +26,7 @@ public class Pagamento {
     @Column
     private BigDecimal valor;
 
-    @ManyToOne
+    @ManyToMany
     @JoinColumn(name = "ID")
     private Jogador jogador;
 }

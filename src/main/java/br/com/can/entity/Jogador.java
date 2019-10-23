@@ -38,7 +38,7 @@ public class Jogador {
     @ManyToOne
     private Categoria categoria;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "ID")
     private Usuario usuario;
 

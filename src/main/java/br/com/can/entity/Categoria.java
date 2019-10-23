@@ -22,7 +22,7 @@ public class Categoria {
     @Column
     private String tipoCategoria;
 
-    @OneToMany
+    @ManyToMany
     @JoinColumn(name = "ID")
     private List<Jogador> jogadores;
 
