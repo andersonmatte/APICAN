@@ -22,8 +22,8 @@ public class Categoria {
     @Column
     private String tipoCategoria;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "categoria")
-    @JoinColumn(name = "ID", referencedColumnName = "ID")
+    @OneToMany
+    @JoinColumn(name = "ID")
     private List<Jogador> jogadores;
 
 }

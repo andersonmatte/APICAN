@@ -48,7 +48,7 @@ public class Clube {
     private Date dataFundacao;
 
     @OneToMany
-    @JoinColumn(name = "ID", referencedColumnName = "ID")
+    @JoinColumn(name = "ID")
     private List<Usuario> usuarios;
 
 }

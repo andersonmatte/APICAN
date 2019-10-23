@@ -34,16 +34,16 @@ public class Jogador {
     @Column
     private long altura;
 
-    @JoinColumn(name = "ID", referencedColumnName = "ID")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID")
+    @ManyToOne
     private Categoria categoria;
 
     @OneToOne
-    @JoinColumn(name = "ID", referencedColumnName = "ID")
+    @JoinColumn(name = "ID")
     private Usuario usuario;
 
-    @OneToMany
-    @JoinColumn(name = "ID", referencedColumnName = "ID")
+    @ManyToMany
+    @JoinColumn(name = "ID")
     private List<Pagamento> pagamentos;
 
 }
