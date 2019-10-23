@@ -44,6 +44,7 @@ public class Usuario {
     @Column
     private String senha;
 
+    @OneToOne
     @JoinColumn(name = "ID")
     private Clube clube;
 

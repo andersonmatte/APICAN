@@ -47,6 +47,7 @@ public class Clube {
     @Column
     private Date dataFundacao;
 
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID")
     private List<Usuario> usuarios;
 
