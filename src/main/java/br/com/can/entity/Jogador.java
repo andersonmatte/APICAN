@@ -34,16 +34,16 @@ public class Jogador {
     @Column
     private long altura;
 
-    @JoinColumn(name = "ID")
-    @OneToOne
-    private Categoria categoria;
-
-    @OneToOne
-    @JoinColumn(name = "ID")
-    private Usuario usuario;
-
-    @OneToMany
-    @JoinColumn(name = "ID")
-    private List<Pagamento> pagamentos;
+//    @JoinColumn(name = "ID")
+//    @OneToOne
+//    private Categoria categoria;
+//
+//    @OneToOne
+//    @JoinColumn(name = "ID")
+//    private Usuario usuario;
+//
+//    @OneToMany
+//    @JoinColumn(name = "ID")
+//    private List<Pagamento> pagamentos;
 
 }
