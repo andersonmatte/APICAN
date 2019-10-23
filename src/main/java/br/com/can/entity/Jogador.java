@@ -34,8 +34,8 @@ public class Jogador {
     @Column
     private long altura;
 
-    @OneToOne
     @JoinColumn(name = "ID", referencedColumnName = "ID")
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Categoria categoria;
 
     @OneToOne

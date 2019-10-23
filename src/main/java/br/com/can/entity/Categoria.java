@@ -22,7 +22,7 @@ public class Categoria {
     @Column
     private String tipoCategoria;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "categoria")
     @JoinColumn(name = "ID", referencedColumnName = "ID")
     private List<Jogador> jogadores;
 
