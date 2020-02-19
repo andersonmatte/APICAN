@@ -1,51 +1,52 @@
 package br.com.can.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.List;
 
-
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
 @Entity
-@Table(name = "USUARIO")
+@Getter
+@Setter
 public class Usuario {
 
     @Id
-    @Column(name = "id", unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
-    @Column
     private String nome;
 
-    @Column
     private Date dataNascimento;
 
-    @Column
-    private long cpf;
+    private Long cpf;
 
-    @Column
     private String endereco;
 
-    @Column
+    @Column(unique = true)
     private String email;
 
-    @Column
-    private String tipoUsuario;
-
-    @Column
-    private String usuario;
-
-    @Column
     private String senha;
 
-    @OneToOne
-    @JoinColumn(name = "ID")
-    private Clube clube;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "usuario_role",
+            joinColumns = @JoinColumn(name = "usuario_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private List<Role> roles;
+
+    public Usuario() {
+    }
+
+    public Usuario(Long id, String nome, Date dataNascimento, Long cpf, String endereco, String email, String senha, List<Role> roles) {
+        this.id = id;
+        this.nome = nome;
+        this.dataNascimento = dataNascimento;
+        this.cpf = cpf;
+        this.endereco = endereco;
+        this.email = email;
+        this.senha = senha;
+        this.roles = roles;
+    }
 
 }

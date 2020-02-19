@@ -1,29 +1,22 @@
 package br.com.can.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
 @Entity
-@Table(name = "CATEGORIA")
+@Getter
+@Setter
 public class Categoria {
 
     @Id
-    @Column(name = "id", unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
-    @Column
     private String tipoCategoria;
 
-//    @OneToMany
-//    @JoinColumn(name = "ID")
-//    private List<Jogador> jogadores;
+    @OneToMany
+    private List<Jogador> jogadores;
 
 }

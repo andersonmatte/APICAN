@@ -1,54 +1,42 @@
 package br.com.can.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.List;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
 @Entity
-@Table(name = "CLUBE")
+@Getter
+@Setter
 public class Clube {
 
     @Id
-    @Column(name = "id", unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
-    @Column
     private String descricao;
 
-    @Column
     private String endereco;
 
-    @Column
-    private long telefone;
+    private Long telefone;
 
-    @Column
-    private long cnpj;
+    private Long cnpj;
 
-    @Column
     private String razaoSocial;
 
-    @Column
     private String email;
 
-    @Column
     private String linkFace;
 
-    @Column
     private String linkInstagran;
 
-    @Column
     private Date dataFundacao;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID")
-    private List<Usuario> usuarios;
+    @OneToMany
+    private List<Jogador> jogadores;
+
+    public Clube() {
+    }
 
 }

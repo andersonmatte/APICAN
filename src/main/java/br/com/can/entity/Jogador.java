@@ -1,49 +1,53 @@
 package br.com.can.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
 @Entity
-@Table(name = "JOGADOR")
+@Getter
+@Setter
 public class Jogador {
 
     @Id
-    @Column(name = "id", unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
-    @Column
     private String nome;
 
-    @Column
     private String posicao;
 
-    @Column
-    private long totalGols;
+    private Long totalGols;
 
-    @Column
-    private long peso;
+    private Long peso;
 
-    @Column
-    private long altura;
+    private Long altura;
 
-//    @JoinColumn(name = "ID")
-//    @OneToOne
-//    private Categoria categoria;
-//
-//    @OneToOne
-//    @JoinColumn(name = "ID")
-//    private Usuario usuario;
-//
-//    @OneToMany
-//    @JoinColumn(name = "ID")
-//    private List<Pagamento> pagamentos;
+    @OneToMany
+    private Categoria categoria;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "usuario_id", referencedColumnName = "id")
+    private Usuario usuario;
+
+    @OneToMany
+    private List<Pagamento> pagamentos;
+
+    public Jogador(){
+
+    }
+
+    public Jogador(Long id, String nome, String posicao, Long totalGols, Long peso, Long altura, Categoria categoria, Usuario usuario, List<Pagamento> pagamentos) {
+        this.id = id;
+        this.nome = nome;
+        this.posicao = posicao;
+        this.totalGols = totalGols;
+        this.peso = peso;
+        this.altura = altura;
+        this.categoria = categoria;
+        this.usuario = usuario;
+        this.pagamentos = pagamentos;
+    }
 }
