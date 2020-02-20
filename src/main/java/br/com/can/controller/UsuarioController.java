@@ -43,8 +43,8 @@ public class UsuarioController {
                     record.setCpf(user.getCpf());
                     record.setEndereco(user.getEndereco());
                     record.setEmail(user.getEmail());
-                    record.setTipoUsuario(user.getTipoUsuario());
-                    record.setUsuario(user.getUsuario());
+                    //record.setTipoUsuario(user.getTipoUsuario());
+                    //record.setUsuario(user.getUsuario());
                     record.setSenha(user.getSenha());
                     Usuario updated = repository.save(record);
                     return ResponseEntity.ok().body(updated);
